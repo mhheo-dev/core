@@ -10,6 +10,7 @@ import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,8 +23,8 @@ public class ApplicationContextExtendsFindTest {
     @Test
     @DisplayName("부모 타입으로 조회, 자식이 둘 이상 있으면, 중복오류가 발생한다.")
     void findBeanByParentTypeDuplicate() {
-        DiscountPolicy bean = ac.getBean(DiscountPolicy.class);
-        assertThrows(NoSuchBeanDefinitionException.class, () -> ac.getBean(DiscountPolicy.class));
+//        DiscountPolicy bean = ac.getBean(DiscountPolicy.class);
+        assertThrows(NoUniqueBeanDefinitionException.class, () -> ac.getBean(DiscountPolicy.class));
     }
 
     @Test
