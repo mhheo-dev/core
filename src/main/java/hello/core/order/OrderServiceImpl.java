@@ -10,11 +10,18 @@ import org.springframework.stereotype.Component;
 public class OrderServiceImpl implements OrderService {
 
     /* 직접 주입방식 테스트가 어려움 , 권장 x */
-    //    @Autowired
-    private MemberRepository memberRepository;
-    //    @Autowired
-    private DiscountPolicy discountPolicy;
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
 
+//    @Autowired
+//    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+//        this.discountPolicy = discountPolicy;
+//    }
+//
+//    @Autowired
+//    public void setMemberRepository(MemberRepository memberRepository) {
+//        this.memberRepository = memberRepository;
+//    }
     //    @Autowired
     //    public void setMemberRepository(MemberRepository memberRepository) {
     //        System.out.println("memberRepository = " + memberRepository);
@@ -38,11 +45,11 @@ public class OrderServiceImpl implements OrderService {
         this.discountPolicy = discountPolicy;
     }
 
-    @Autowired
-    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+//    @Autowired
+//    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
 
     @Override
